@@ -1,0 +1,300 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Личное дело №001</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@400;600;700;800&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="styles.css"/>
+</head>
+<body>
+  <main class="page">
+
+    <!-- 1. Обложка -->
+    <section class="screen screen--cover">
+      <div class="cover-top">
+        <h1 class="h1">Личное дело</h1>
+
+        <div class="case-row">
+          <div class="case-no">№</div>
+          <div class="case-line">
+            <span id="caseNumber" class="case-number"></span>
+          </div>
+        </div>
+      </div>
+
+      <p class="center-text">
+        о задержании<br/>
+        гражданки с целью<br/>
+        последующего<br/>
+        бракосочетания
+      </p>
+
+      <button class="stamp-btn" id="openBtn" type="button">ОТКРЫТЬ</button>
+    </section>
+
+    <!-- 2. Протокол + звук -->
+    <section class="screen screen--tight-after-side">
+      <div class="audio-card anim">
+        <button class="play" id="playBtn" type="button" aria-label="Включить звук">▶</button>
+        <div class="audio-text">Включи звук<br/>для настроения</div>
+      </div>
+
+      <h2 class="h2 anim"><span class="caps">ПРОТОКОЛ</span><br/>об административном<br/>задержании</h2>
+
+      <div class="side side--center">
+        <div class="form-block anim">
+          <p class="para">Я, уполномоченное лицо: </p>
+
+          <div class="grid">
+            <div class="field">
+              <div class="boxes" aria-hidden="true"></div>
+              <div class="label">фамилия</div>
+              <div class="value" id="officerLast"></div>
+            </div>
+
+            <div class="field">
+              <div class="boxes" aria-hidden="true"></div>
+              <div class="label">имя</div>
+              <div class="value" id="officerFirst"></div>
+            </div>
+
+            <div class="field">
+              <div class="boxes" aria-hidden="true"></div>
+              <div class="label">отчество</div>
+              <div class="value" id="officerMiddle"></div>
+            </div>
+          </div>
+        </div>
+
+        <div class="photo-wrap right anim-x">
+          <img class="photo" src="assets/photo-officer.png" alt="Фото уполномоченного лица">
+        </div>
+      </div>
+
+    </section>
+
+    <!-- 3. Задержание гражданки -->
+    <section class="screen screen--no-top-padding">
+      <p class="para anim">
+        Действуя на основании личных намерений, устойчивых чувств
+        и окончательного решения о создании семьи, произвел задержание гражданки:
+      </p>
+      <div class="side side--center">
+        <div class="anim">
+          <div class="grid">
+            <div class="field">
+              <div class="boxes" aria-hidden="true"></div>
+              <div class="label">фамилия</div>
+              <div class="value" id="brideLast"></div>
+            </div>
+
+            <div class="field">
+              <div class="boxes" aria-hidden="true"></div>
+              <div class="label">имя</div>
+              <div class="value" id="brideFirst"></div>
+            </div>
+
+            <div class="field">
+              <div class="boxes" aria-hidden="true"></div>
+              <div class="label">отчество</div>
+              <div class="value" id="brideMiddle"></div>
+            </div>
+          </div>
+        </div>
+
+        <div class="mugshot anim-x">
+          <img class="photo" src="assets/photo-bride4.png" alt="Фото задержанной">
+        </div>
+      </div>
+
+      <p class="para anim">
+        Действуя по предварительному взаимному согласию, вступили в сговор
+        с целью создания семьи, совместного ведения хозяйства и пожизненного союза.
+      </p>
+
+      <p class="para anim">В ходе проверки выявлены следующие обстоятельства:</p>
+
+      <ol class="list anim">
+        <li>незаконное завладение сердцем;</li>
+        <li>систематическое присутствие в мыслях;</li>
+        <li>планирование совместного будущего;</li>
+        <li>намерение обменяться кольцами;</li>
+        <li>отсутствие сопротивления задержанию.</li>
+      </ol>
+    </section>
+
+    <!-- 4. Постановлено + место -->
+    <section class="screen">
+      <h3 class="h3 anim">ПОСТАНОВЛЕНО</h3>
+
+      <p class="para anim">
+        Назначить процедуру официального бракосочетания на
+        <span class="underline anim" id="weddingDate"></span>
+      </p>
+
+      <img class="prop-img anim-x" src="assets/handcuffs.png" alt="Наручники">
+
+      <!-- НЕ по центру, а “по ширине” (влево как текст) -->
+      <h3 class="h3 h3--left anim">I.&nbsp;МЕСТО ПРОВЕДЕНИЯ<br/>ПРОЦЕССУАЛЬНЫХ ДЕЙСТВИЙ</h3>
+
+      <p class="para anim">Торжественное празднование задержания состоится по адресу:</p>
+
+      <div class="address-line anim">
+        <span id="venueName"></span>
+      </div>
+
+      <div class="photo-wide anim-x">
+        <img class="photo" src="assets/hall.jpg" alt="Фото зала/места проведения">
+      </div>
+    </section>
+
+    <!-- 5. Программа + кольца -->
+    <section class="screen">
+      <h3 class="h3 h3--left anim">II.&nbsp;ПРОГРАММА<br/>ПРОЦЕССУАЛЬНЫХ ДЕЙСТВИЙ</h3>
+
+      <div class="schedule" id="schedule"></div>
+
+      <img class="prop-img anim-x" src="assets/rings.png" alt="Кольца">
+    </section>
+
+    <!-- 6. Dress-code -->
+    <section class="screen">
+      <h3 class="h3 h3--left anim">III.&nbsp;ФОРМА ОДЕЖДЫ<br/>ДЛЯ ПОНЯТЫХ (DRESS-КОД)</h3>
+
+      <p class="para anim">
+        В целях соблюдения праздничной дисциплины предписывается:
+        стиль классический. Цветовая директива:
+        <span class="color-name">КАПУЧИНО</span>.
+      </p>
+
+      <div class="palette anim" id="palette"></div>
+    </section>
+
+    <!-- 7. Деньги -->
+    <section class="screen">
+      <h3 class="h3 h3--left anim">IV.&nbsp;ПОРЯДОК ПЕРЕДАЧИ<br/>МАТЕРИАЛЬНЫХ ДОКАЗАТЕЛЬСТВ</h3>
+
+      <p class="para anim">
+        В ходе предварительной проверки установлено, что молодая семья обеспечена предметами быта.
+        В связи с этим разрешается передача подарков исключительно в денежной форме.
+      </p>
+
+      <img class="prop-img anim-x" src="assets/money2.png" alt="Деньги/конверт">
+
+      <p class="para anim">
+        Средства будут направлены на развитие совместной стратегии и укрепление
+        материально-технической базы семьи.
+      </p>
+
+      <p class="para anim">
+        Передача цветочной продукции не требуется. Жизненный цикл букетов ограничен,
+        логистические издержки неоправданны.
+      </p>
+
+      <p class="para anim">
+        Рекомендуется иметь при себе денежные средства для участия
+        в развлекательных мероприятиях, предусмотренных программой.
+      </p>
+    </section>
+
+    <!-- 8. Доп. распоряжения -->
+    <section class="screen">
+      <h3 class="h3 h3--left anim">V.&nbsp;ДОПОЛНИТЕЛЬНЫЕ<br/>РАСПОРЯЖЕНИЯ</h3>
+
+      <ol class="list list--compact anim">
+        <li id="rule1"></li>
+        <li id="rule2"></li>
+      </ol>
+
+      <img class="prop-img prop-img--bigger anim-x" src="assets/photo.png" alt="Дополнительные распоряжения">
+    </section>
+
+    <!-- 9. RSVP -->
+    <section class="screen">
+      <h3 class="h3 h3--left anim">VI.&nbsp;ЯВКА ПОНЯТОГО</h3>
+
+      <p class="para anim">
+        Для участия в процессуальных действиях просим подтвердить личное присутствие
+        до <span class="underline anim" id="rsvpDeadline"></span>
+        и внести данные:
+      </p>
+
+      <form class="rsvp2 anim" id="rsvpForm">
+        <div class="proto-field">
+          <div class="proto-label">ФИО ПОНЯТОГО</div>
+          <input class="proto-input" name="fio" type="text" placeholder="Фамилия Имя Отчество" required>
+        </div>
+
+        <div class="proto-field">
+          <div class="proto-label">АЛКОГОЛЬ</div>
+
+          <div class="alc-grid">
+            <label class="pill"><input type="checkbox" name="alc" value="Вино"><span>Вино</span></label>
+            <label class="pill"><input type="checkbox" name="alc" value="Шампанское"><span>Шампанское</span></label>
+            <label class="pill"><input type="checkbox" name="alc" value="Крепкое"><span>Крепкое</span></label>
+            <label class="pill"><input type="checkbox" name="alc" value="Без алкоголя"><span>Без алкоголя</span></label>
+          </div>
+        </div>
+
+        <div class="proto-field">
+          <div class="proto-label">СКОЛЬКО ПОНЯТЫХ БУДЕТ С ВАМИ</div>
+          <input
+            class="proto-input"
+            id="companionsCount"
+            name="companionsCount"
+            type="number"
+            min="0"
+            max="5"
+            step="1"
+            value="0"
+            placeholder="0"
+          >
+        </div>
+
+        <div class="proto-field" id="companionsSection" style="display:none;">
+          <div class="proto-label">ДАННЫЕ СОПРОВОЖДАЮЩИХ ПОНЯТЫХ</div>
+          <div id="companionsList"></div>
+        </div>
+
+        <div class="proto-field">
+          <div class="proto-label">КОММЕНТАРИЙ</div>
+          <textarea class="proto-input" name="comment" rows="3" placeholder="Пожелания / Важная информация"></textarea>
+        </div>
+
+        <button class="submit2" type="submit">ОТПРАВИТЬ</button>
+        <button class="submit2" id="cancelSubmitBtn" type="button" style="display:none; margin-top:8px;">ОТМЕНИТЬ ОТПРАВКУ</button>
+
+        <!-- (невидимый технический линк: нужен только коду, гостям не показываем) -->
+        <a id="googleFormLink" class="sr-only" href="#" target="_blank" rel="noopener">Google Form</a>
+
+        <p class="fineprint" id="rsvpNote"></p>
+      </form>
+    </section>
+
+    <!-- 10. Заключение -->
+    <section class="screen">
+      <h3 class="h3 h3--left anim">VII.&nbsp;ЗАКЛЮЧЕНИЕ</h3>
+
+      <p class="para anim">
+        Настоящий протокол вступает в силу с момента официального объявления граждан мужем и женой.
+      </p>
+
+      <!-- gavel перед машинкой -->
+      <img class="prop-img prop-img--gavel anim-x" src="assets/gavel.png" alt="Молоток">
+
+      <div class="final">
+        <img class="prop-img anim-x" src="assets/car.png" alt="Машинка">
+      </div>
+    </section>
+
+  </main>
+
+  <audio id="bgAudio" src="mus.mp3" preload="auto"></audio>
+  <script src="script.js"></script>
+</body>
+</html>
